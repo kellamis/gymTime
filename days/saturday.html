@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Saturday</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<!-- Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!--UI Framework -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/css/uikit.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/js/uikit.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/js/uikit-icons.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Luckiest+Guy|Oswald" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Background Image -->
+	<div class="bg"></div>
+
+	<!-- Responsive Container -->
+	<div class="uk-container uk-container-large margin-bottom">
+
+		<!-- Grid for Card -->
+		<div class="uk-child-width@s uk-grid-match " uk-grid>
+			<div>
+				<!-- Card -->
+				<div class="uk-card uk-card-default uk-card-body">
+					<!-- Date Badge -->
+					<div id="date" class="uk-card-badge uk-label"></div>
+					<!-- Workout Name -->
+					<h3 class="uk-card-title title-font">CHEST/TRICEPS</h3>
+					<!-- Calisthenics Routine -->
+					<div uk-lightbox>
+						<a class="uk-button uk-button-danger table-font" href="../img/push-pull.jpg">Open Calisthenics Routine Image</a>
+					</div>
+					<!-- Excercise Table -->
+					<table class="uk-table uk-table-striped table-font">
+						<thead>
+							<!-- Row 1 -->
+							<tr>
+								<th>Excercise</th>
+								<th>Sets</th>
+								<th>Rest</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Row 2 -->
+							<tr>
+								<td>Leg Raises</td>
+								<td>10</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row 3 -->
+							<tr>
+								<td>Leg in & Out</td>
+								<td>10</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row 4 -->
+							<tr>
+								<td>Legs To Bar</td>
+								<td>10</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row 5 -->
+							<tr>
+								<td>Lever Raises</td>
+								<td>10</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row 6 -->
+							<tr>
+								<td>Knee Raises</td>
+								<td>30</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row 7 -->
+							<tr>
+								<td>90* Leg Hold</td>
+								<td>15 Seconds</td>
+								<td>1 Min</td>
+							</tr>
+							<!-- Row for Rounds -->
+							<tr>
+								<td class="round-rest">5 Rounds</td>
+								<td class="round-rest">4 Minute Rest After Each Round</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- Grid for Card 2 -->
+		<div class="uk-child-width@s uk-grid-match " uk-grid>
+			<div>
+				<!-- Card -->
+				<div class="uk-card uk-card-default uk-card-body">
+					<!-- Title -->
+					<h3 class="uk-card-title title-font">DAYS UNTIL ROUTINE CHANGE</h3>
+					<!-- Table CountDown -->
+					<table class="uk-table uk-table-striped table-font">
+						<thead>
+							<!-- Row 1 -->
+							<tr>
+								<th>Years</th>
+								<th>Months</th>
+								<th>Days</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="years"></td>
+								<td id="months"></td>
+								<td id="days"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Date Badge Update Javascript -->
+	<script>
+		var d = new Date();
+		document.getElementById("date").innerHTML = d.toDateString();
+	</script>
+
+	<!-- Countdown Javascript -->
+	<script>
+		var countDownDate = new Date("Jun 9, 2018 15:30:00").getTime();
+		var x = setInterval(function () {
+
+			var now = new Date().getTime();
+
+			var distance = countDownDate - now;
+
+			var years = Math.floor(distance / (1000 * 60 * 60 * 24 * 30 * 12));
+			var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			document.getElementById("days").innerHTML = days;
+			document.getElementById("months").innerHTML = months;
+			document.getElementById("years").innerHTML = years;
+
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("days").innerHTML = "EXPIRED";
+			}
+		}, 1000);
+	</script>
+
+</body>
+
+</html>
